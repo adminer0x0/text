@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Text Tools</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
+</head>
+<body>
+    <div id="tsparticles"></div>
+
+    <div class="container">
+        <h1>Advanced Text Tools</h1>
+
+        <div class="grid-container">
+            <div class="section input-section">
+                <label for="inputText">Input Text:</label>
+                <textarea id="inputText" rows="15" placeholder="Paste your text here..."></textarea>
+            </div>
+
+            <div class="section output-section">
+                <label for="outputText">Processed Output:</label>
+                <textarea id="outputText" rows="15" readonly placeholder="Results will appear here..."></textarea>
+                <button id="copyButton" class="control-button copy-button">Copy Results</button>
+            </div>
+
+            <div class="section controls-section">
+                <h2>Manipulation Controls</h2>
+                <div class="button-group">
+                    <button class="control-button" data-action="upper">Uppercase</button>
+                    <button class="control-button" data-action="lower">Lowercase</button>
+                    <button class="control-button" data-action="title">Title Case</button>
+                    <button class="control-button" data-action="sentence">Sentence Case</button>
+                    <button class="control-button" data-action="shuffle">Shuffle Lines</button>
+                    <button class="control-button" data-action="reverseLines">Reverse Lines</button>
+                    <button class="control-button" data-action="reverseEachLine">Reverse Each Line</button>
+                    <button class="control-button" data-action="deduplicateLines">Deduplicate Lines</button>
+                </div>
+
+                <h2>URL Extraction</h2>
+                 <div class="button-group">
+                    <button class="control-button" data-action="extractUrls">Extract Unique URLs</button>
+                 </div>
+
+                <h2>Prefix / Suffix</h2>
+                <div class="inline-options">
+                    <input type="text" id="prefix" placeholder="Prefix">
+                    <input type="text" id="suffix" placeholder="Suffix">
+                    <button class="control-button" data-action="addPrefixSuffix">Add Prefix/Suffix</button>
+                </div>
+
+                <h2>Filtering</h2>
+                <div class="inline-options">
+                    <input type="text" id="keyword" placeholder="Keyword Filter">
+                    <select id="keywordAction">
+                        <option value="keepContaining">Keep Containing</option>
+                        <option value="removeContaining">Remove Containing</option>
+                         <option value="keepNotContaining">Keep NOT Containing</option>
+                        <option value="removeNotContaining">Remove NOT Containing</option>
+                    </select>
+                    <button class="control-button" data-action="filterKeyword">Filter by Keyword</button>
+                </div>
+                 <div class="inline-options">
+                    <input type="number" id="minLength" placeholder="Min Length" min="0">
+                    <input type="number" id="maxLength" placeholder="Max Length" min="0">
+                    <select id="lengthAction">
+                        <option value="keepBetween">Keep Between</option>
+                        <option value="removeBetween">Remove Between</option>
+                        <option value="keepShorter">Keep Shorter Than Min</option>
+                        <option value="keepLonger">Keep Longer Than Max</option>
+                    </select>
+                    <button class="control-button" data-action="filterLength">Filter by Length</button>
+                </div>
+                 <div class="button-group">
+                     <button class="control-button clear-button" data-action="clear">Clear All</button>
+                 </div>
+            </div>
+
+             <div class="section status-section">
+                <span id="statusMessage">Ready</span> |
+                <span>Input Lines: <b id="inputLines">0</b></span> |
+                <span>Output Lines: <b id="outputLines">0</b></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
